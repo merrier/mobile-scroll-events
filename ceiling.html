@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--360 浏览器在读取到这个标签后，立即切换对应的极速核-->
+    <meta name="renderer" content="webkit">
+    <!--优先使用 IE 最新版本和 Chrome-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!--缩放比例为1-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>吸顶</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            height: 1500px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overflow-scrolling: touch;
+        }
+
+        .box {
+            height: 40px;
+            line-height: 40px;
+            background-color: green;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .ceiling-box {
+            display: none;
+            position: fixed;
+            top: 0;
+            bottom: auto;
+            width: 100%;
+        }
+
+        .ceiling-box.ceilShow {
+            display: block;
+        }
+
+        .placeholder-box {
+            margin-top: 100px;
+            opacity: 1;
+        }
+
+        .placeholder-box.ceilShow {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box ceiling-box">
+    我是吸顶的
+</div>
+
+<div class="main">
+    <div class="box placeholder-box">
+        我是不吸顶的
+    </div>
+</div>
+
+</body>
+<script src="./ready.js"></script>
+<script>
+
+    document.ready(function () {
+        var placeholder = document.getElementsByClassName('placeholder-box')[0];
+        var ceiling = document.getElementsByClassName('ceiling')[0];
+        var top = placeholder.offsetTop;
+
+        window.addEventListener('scroll', function () {
+            var wtop = window.screenTop;
+            if(wtop < top){
+                placeholder.setAttribute('class','box placeholder-box');
+                ceiling.setAttribute('class','box ceiling-box');
+            }else{
+                placeholder.setAttribute('class','box placeholder-box ceilShow');
+                ceiling.setAttribute('class','box ceiling-box ceilShow');
+            }
+        })
+
+    });
+
+</script>
+</html>
