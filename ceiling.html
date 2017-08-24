@@ -68,14 +68,13 @@
 </body>
 <script src="./ready.js"></script>
 <script>
-
     document.ready(function () {
         var placeholder = document.getElementsByClassName('placeholder-box')[0];
-        var ceiling = document.getElementsByClassName('ceiling')[0];
+        var ceiling = document.getElementsByClassName('ceiling-box')[0];
         var top = placeholder.offsetTop;
 
         window.addEventListener('scroll', function () {
-            var wtop = window.screenTop;
+            var wtop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
             if(wtop < top){
                 placeholder.setAttribute('class','box placeholder-box');
                 ceiling.setAttribute('class','box ceiling-box');

@@ -2,9 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--360 浏览器在读取到这个标签后，立即切换对应的极速核-->
+    <meta name="renderer" content="webkit">
+    <!--优先使用 IE 最新版本和 Chrome-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!--缩放比例为1-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
     <title>全局滚动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 1600px;
+            overflow-y: scroll;
+        }
+        body.elastic{
+            -webkit-overflow-scrolling: touch;
+            overflow-scrolling: touch;
+        }
+        .fixed-box{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            height: 40px;
+            width: 100%;
+            background-color: green;
+            color: #fff;
+            font-size: 16px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .fixed-btn{
+            position: fixed;
+            top: 40px;
+            bottom: 0;
+            height: 40px;
+            width: 100%;
+            background-color: orange;
+            color: #fff;
+            font-size: 16px;
+            line-height: 40px;
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
 
+<div class="fixed-box">scrollTop:<span class="number">0</span></div>
+
+<div class="fixed-btn"><span class="event">添加</span><i>overflow-scrolling:touch</i></div>
+
 </body>
+<script src="./ready.js"></script>
+<script>
+    document.ready(function () {
+
+        window.addEventListener('scroll', function () {
+            var wtop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+
+            document.getElementsByClassName('number')[0].innerText = wtop;
+        });
+
+        document.getElementsByClassName('fixed-btn')[0].addEventListener('click', function(){
+            var event = document.getElementsByClassName('event')[0];
+            var text = event.innerText;
+            var body = document.body;
+
+            if(text === '添加'){
+                body.setAttribute('class', 'elastic');
+                event.innerText = '移除';
+            }else{
+                body.setAttribute('class', ' ');
+                event.innerText = '添加';
+            }
+        });
+
+    });
+
+</script>
 </html>

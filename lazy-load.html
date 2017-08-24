@@ -2,9 +2,165 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--360 浏览器在读取到这个标签后，立即切换对应的极速核-->
+    <meta name="renderer" content="webkit">
+    <!--优先使用 IE 最新版本和 Chrome-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!--缩放比例为1-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
     <title>图片懒加载</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+            display: -moz-box; /* 老版本语法: Firefox (buggy) */
+            display: -ms-flexbox; /* 混合版本语法: IE 10 */
+            display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+            display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+            -webkit-align-items: center;
+            align-items: center;
+            height: 80px;
+            padding: 5px 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .box img{
+            height:100%;
+            width: 100px;
+            margin-right: 10px;
+        }
+        .box p{
+            font-size: 16px;
+            font-family: "Microsoft Yahei", "微软雅黑";
+        }
+    </style>
 </head>
 <body>
 
+<div class="main">
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img1" data-src="images/img1.png" />
+        <p>可以下滑查看懒加载效果</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img2" data-src="images/img2.png" />
+        <p>实现原理其实很简单</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img3" data-src="images/img3.png" />
+        <p>先让图片引用默认图片</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img4" data-src="images/img4.png" />
+        <p>把真实图片地址放在data-*属性上面</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img5" data-src="images/img5.png" />
+        <p>然后监听滚动就可以了</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img6" data-src="images/img6.png" />
+        <p>可以下滑查看懒加载效果</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img7" data-src="images/img7.png" />
+        <p>实现原理其实很简单</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img8" data-src="images/img8.png" />
+        <p>先让图片引用默认图片</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img9" data-src="images/img9.png" />
+        <p>把真实图片地址放在data-*属性上面</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img10" data-src="images/img10.png" />
+        <p>然后监听滚动就可以了</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img11" data-src="images/img11.png" />
+        <p>可以下滑查看懒加载效果</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img12" data-src="images/img12.png" />
+        <p>实现原理其实很简单</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img13" data-src="images/img13.png" />
+        <p>先让图片引用默认图片</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img14" data-src="images/img14.png" />
+        <p>把真实图片地址放在data-*属性上面</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img15" data-src="images/img15.png" />
+        <p>然后监听滚动就可以了</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img16" data-src="images/img16.png" />
+        <p>可以下滑查看懒加载效果</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img17" data-src="images/img17.png" />
+        <p>实现原理其实很简单</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img18" data-src="images/img18.png" />
+        <p>先让图片引用默认图片</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img19" data-src="images/img19.png" />
+        <p>把真实图片地址放在data-*属性上面</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img20" data-src="images/img20.png" />
+        <p>然后监听滚动就可以了</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img21" data-src="images/img21.png" />
+        <p>可以下滑查看懒加载效果</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img22" data-src="images/img22.png" />
+        <p>实现原理其实很简单</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img23" data-src="images/img23.png" />
+        <p>先让图片引用默认图片</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img24" data-src="images/img24.png" />
+        <p>把真实图片地址放在data-*属性上面</p>
+    </div>
+    <div class="box">
+        <img class="lazyloadimg" src="images/default.png" alt="img25" data-src="images/img25.png" />
+        <p>然后监听滚动就可以了</p>
+    </div>
+</div>
+
+
 </body>
+<script src="./ready.js"></script>
+<script>
+    document.ready(function () {
+
+        window.addEventListener('scroll', function () {
+            var bodyScrollHeight =  document.body.scrollTop;// body滚动高度
+            var windowHeight = window.innerHeight;// 视窗高度
+            var imgs = document.getElementsByClassName('lazyloadimg');
+            for (var i =0; i < imgs.length; i++) {
+                var imgHeight = imgs[i].offsetTop;// 图片距离顶部高度  
+                if (imgHeight  < windowHeight  + bodyScrollHeight) {
+                    imgs[i].src = imgs[i].getAttribute('data-src');
+                    imgs[i].className = imgs[i].className.replace('lazyloadimg','')
+                }
+            }
+        })
+    });
+
+</script>
 </html>
