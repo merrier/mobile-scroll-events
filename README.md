@@ -1,4 +1,4 @@
-# Mobile-scroll-events
+# mobile-scroll-events
 移动端滚动事件大起底！
 
 |                 | 是否可以弹性滚动 | 是否需要设置overflow:scrolling才能弹性滚动 | 设置overflow:scrolling之后，滚动期间是否监听事件 | 未设置overflow:scrolling，滚动期间是否监听事件 |
