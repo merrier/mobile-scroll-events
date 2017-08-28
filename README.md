@@ -84,7 +84,12 @@ ios的webview内核设定了其在进行momentum scrolling(弹性滚动， 设�
 |   QQ(v7.7.2)    |       是      |                   否                   |                     是                     |                     是                    |
 |   搜狗(v5.8.1)   |       是      |                   否                   |                     否                     |                     否                    |
 
-从上面的图片可以看到，最新版的ios浏览器其实并不需要`overflow:scrolling`就可以实现弹性滚动，同时除了搜狗浏览器之外，其他浏览器在滚动期间都会监听事件，由此可见截止到目前（2017-8-24），ios和浏览器对滚动事件的兼容性已经做了很多优化和改进了，之后有时间的话再在android手机上做一下测试……
+从上面的图片可以看到，最新版的ios浏览器其实并不需要`overflow:scrolling`就可以实现弹性滚动，同时除了搜狗浏览器之外，其他浏览器在滚动期间都会监听事件，由此可见截止到目前（2017-8-24），ios和浏览器对滚动事件的兼容性已经做了很多优化和改进了，之后有时间的话再在android手机上做一下测试……（如果你感兴趣的话，可以点击下面链接或扫描二维码进行测试，欢迎告知结果~）
+
+| 全局滚动 | 局部滚动 |
+|:------:|:---------:|
+| [测试demo](https://merrier.github.io/mobile-scroll-events/global-scroll.html) | [测试demo](https://merrier.github.io/mobile-scroll-events/local-scroll.html) |
+| ![全局滚动](./qrcode/global-scroll.png) | ![局部滚动](./qrcode/local-scroll.png) |
 
 ## 滚动事件性能优化
 
