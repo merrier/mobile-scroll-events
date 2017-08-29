@@ -42,7 +42,7 @@
             height: 1600px;
             overflow-y: scroll;
         }
-        .scroll-box.elastic{
+        .scroll-container.elastic{
             -webkit-overflow-scrolling: touch;
             overflow-scrolling: touch;
         }
@@ -55,7 +55,9 @@
 
 <div class="fixed-btn"><span class="event">添加</span><i>overflow-scrolling:touch</i></div>
 
-<div class="scroll-box"></div>
+<div class="scroll-container">
+    <div class="scroll-box"></div>
+</div>
 
 </body>
 <script src="./ready.js"></script>
@@ -71,13 +73,13 @@
         document.getElementsByClassName('fixed-btn')[0].addEventListener('click', function(){
             var event = document.getElementsByClassName('event')[0];
             var text = event.innerText;
-            var scrollBox = document.getElementsByClassName('scroll-box')[0];
-
-            scrollBox.classList.toggle('elastic');
+            var scrollCon = document.getElementsByClassName('scroll-container')[0];
 
             if(text === '添加'){
+                scrollCon.setAttribute('class', 'scroll-container elastic');
                 event.innerText = '移除';
             }else{
+                scrollCon.setAttribute('class', 'scroll-container');
                 event.innerText = '添加';
             }
         });
